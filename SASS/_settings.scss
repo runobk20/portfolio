@@ -1,0 +1,87 @@
+@use '_variables' as v;
+@use '_mixins' as m;
+@use '_fonts';
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:after, *:before {
+    box-sizing: inherit;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: v.$primary;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+button {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.hide {
+    display: none;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.observer-item {
+    opacity: 0;
+}
+
+.observer-item.show {
+    opacity: 1;
+}
+
+.svg-primary {
+    filter: v.$filter-primary;
+}
+
+.svg-primary-toned {
+    filter: v.$filter-primary-toned;
+}
+
+.svg-accent {
+    filter: v.$filter-accent;
+}
+
+::selection {
+    color: v.$black;
+    background-color: v.$accent;
+}
+
+::-moz-selection {
+    color: v.$black;
+    background-color: v.$accent;
+}
+
+#arrow-up {
+    position: fixed;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    bottom: 15px;
+    right: 25px;
+    z-index: 10;
+}
+
+.message {
+    padding: 20px;
+    color: v.$black;
+    border: 1px solid v.$black;
+}.success {
+    background-color: v.$success;
+}

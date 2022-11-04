@@ -1,0 +1,69 @@
+@use './variables' as v;
+
+@mixin button($width, $height, $f-size, $color, $bg-color, $bg-hover) {
+
+    width: $width;
+    height: $height;
+    font-size: $f-size;
+    color: $color;
+    background-color: $bg-color;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .6s;
+
+    &:hover {
+        background-color: $bg-hover;
+        transform: scale(1.05)!important;
+        box-shadow: 1px 1px 2px v.$primary-light , -1px 1px 2px v.$primary-light;
+    }
+}
+
+@mixin button-contact($width, $height, $padding, $font-size) {
+
+    display: flex;
+    align-items: center;
+    padding: $padding;
+    width: $width;
+    height: $height;
+    font-size: $font-size;
+    color: v.$pure-white;
+    background-color: v.$primary;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .5s;
+
+    &:hover {
+        filter: brightness(110%);
+        border: 2px solid v.$primary-toned;
+    }
+
+    img {
+        margin-right: 20px;
+    }
+}
+
+@mixin flex($direction: initial, $justify: initial, $align: initial, $gap: 0) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+@mixin form-control() {
+    background-color: v.$gray;
+    border: 1px solid v.$primary-toned;
+    border-radius: 10px;
+    color: v.$pure-white;
+    padding: 10px;
+    transition: .2s;
+            
+    &:focus {
+        outline: none;
+        border: 1px solid v.$accent;
+        filter: brightness(105%);
+    }
+}

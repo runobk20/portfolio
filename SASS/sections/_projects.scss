@@ -1,0 +1,196 @@
+@use '../variables' as v;
+@use '../mixins' as m;
+@use '../fonts';
+
+.projects {
+    background-color: v.$black;
+    padding: 20px 40px;
+    font-family: 'IBM Plex Mono', monospace;
+
+    .project-img {
+        display: none;
+    }
+
+    h2 {
+        color: v.$accent;
+        font-size: 36px;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    h3 {
+        color: v.$accent;
+        font-size: 24px;
+        font-weight: 400;
+        margin-bottom: 15px;
+    }
+
+    p {
+        color: v.$accent-light;
+        font-size: 16px;
+        font-weight: 200;
+    }
+
+    button {
+        @include m.button(210px, 40px, 12px, v.$primary, v.$accent, v.$accent-light);
+        padding: 20px;
+        
+        display: flex;
+        align-items: center;
+        margin: 15px 0;
+
+        img {
+            width: 25px;
+            height: 25px;
+        }
+
+        a {
+            margin-left: 20px;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+    }
+}
+
+.project-card {
+    background-color: v.$primary;
+    border-radius: 10px;
+    max-width: 500px;
+    padding: 30px;
+    margin: 20px 0;
+    box-shadow: 2px 2px 2px v.$accent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+@media screen and (min-width: 600px) {
+    .project-card {
+        margin: 15px auto;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .projects {
+
+        h2 {
+            text-align: left;
+        }
+
+        .project-img {
+            display: initial;
+            width: 375px;
+            height: 189px;
+            margin: auto 0;
+        }
+
+        button {
+            @include m.button(240px, 40px, 16px, v.$primary, v.$accent, v.$accent-light);
+    
+            img {
+                width: 30px;
+                height: 30px;
+            }
+    
+            a {
+                margin-left: 20px;
+                font-family: 'IBM Plex Mono', monospace;
+            }
+        }
+
+    }
+
+    .project-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .project-container.second {
+        flex-direction: row-reverse;
+    }
+
+}
+
+@media screen and (min-width: 1060px) {
+
+    .projects {
+        padding: 60px 30px;
+
+        .project-img {
+            height: 367px;
+            width: 728px;
+        }
+
+        h2 {
+            font-size: 48px;
+        }
+    
+        h3 {
+            font-size: 36px;
+        }
+    
+        p {
+            font-size: 24px;
+        }
+
+        button {
+            @include m.button(310px, 60px, 22px, v.$primary, v.$accent, v.$accent-light);
+            margin-bottom: 30px;
+
+            img {
+                width: 40px;
+                height: 40px;
+            }    
+    
+            a {
+                margin-left: 20px;
+                font-family: 'IBM Plex Mono', monospace;
+            }
+        }
+    }
+    .project-container {
+        gap: 40px;
+    }
+    
+    .project-card {
+        margin: 0;
+        height: 540px;
+        max-width: 500px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    
+    .projects {
+        padding: 65px;
+
+        .project-img {
+            margin-top: 90px;
+            height: 407px;
+            width: 808px;
+        }
+
+    }
+
+    .project-container {
+        gap: 60px;
+        margin-bottom: 90px;
+    }
+}
+
+.projects {
+    .this-project {
+    
+        h3 {
+            text-align: center;
+            margin: 20px 0;
+        }
+    
+        button {
+            margin: 20px auto;
+        }
+    }
+}

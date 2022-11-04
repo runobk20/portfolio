@@ -1,0 +1,138 @@
+@use '../variables' as v;
+@use '../mixins' as m;
+
+.main {
+    display: block;
+    padding: 20px 40px 40px;
+
+    em {
+        color: v.$accent;
+    }
+
+    .presentation {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        h1 {
+            color: v.$white;
+            font-size: 38px;
+            margin-top: 40px;
+        }
+    
+        h2 {
+            color: v.$white;
+            font-size: 22px;
+        }
+
+        button {
+            @include m.button(200px, 40px, 22px, v.$white, v.$accent, v.$accent-light);
+        }
+    }
+}
+
+div[title="banner"] {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .main {
+        
+        .presentation {
+
+            h1 {
+                font-size: 44px;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+        }
+    }
+}
+
+
+
+@media screen and (min-width: 1025px) {
+
+    .main {
+        display: grid;
+        grid-template-columns: 1.2fr 1.6fr;
+        height: 100vh;
+    }
+
+    div[title="banner"] {
+        display: initial;
+        position: relative;
+    }
+
+    .banner {
+        max-width: 699px;
+        max-height: 508px;
+    }.banner.position {
+        position: absolute;
+        top: 12vh;
+        left: -50%;
+    }
+
+    .main .presentation {
+
+        display: grid;
+        grid-template-rows: .6fr .2fr .2fr .2fr 1fr;
+        gap: 30px;
+        text-align: right;
+
+        h1 {
+            color: v.$white;
+            font-size: 28px;
+            grid-row: 2/3;
+            margin-top: 35px;
+        }
+    
+        h2 {
+            color: v.$white;
+            font-size: 34px;
+            grid-row: 3/4;
+        }
+    
+        .button-container {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            grid-row: 4/5;
+        }
+
+        button {
+            @include m.button(200px, 60px, 22px, v.$white, v.$accent, v.$accent-light);
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .banner.position {
+        position: absolute;
+        top: 12vh;
+        left: -150px;
+    }
+}
+
+@media screen and (min-width: 1441px) {
+
+    .main {
+        padding: 40px 0;
+        .presentation {
+            h1 {
+                font-size: 1.75em;
+            }
+        
+            h2 {
+                font-size: 2.5em;
+            }
+        }
+    }
+
+    .banner.position {
+        left: -40px;
+    }
+}

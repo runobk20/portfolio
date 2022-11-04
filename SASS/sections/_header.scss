@@ -1,0 +1,75 @@
+@use '../variables' as v;
+@use '../mixins' as m;
+
+@media screen and (max-width: 390px) {
+    header {
+        .nav-container {    
+            img {
+                    width: 20px;
+                    height: 20px;
+            }
+        }
+    }
+}
+
+header {
+    background-color: v.$primary;
+    padding: 10px 40px;
+
+    .container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .left-container {
+        display: flex;
+        align-items: center;
+        
+        a {
+            margin-right: 20px;
+        }
+
+        img {
+            cursor: pointer;
+        }
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+            margin: 0 15px;
+        }
+
+        img:hover {
+                filter: v.$filter-accent;
+                transform: scale(1.2);
+        }
+    }
+
+    .hide-btn {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    header {
+        padding: 20px 40px;
+        .nav-container {
+
+            button {
+                @include m.button(185px, 40px, 20px, v.$white, v.$accent, v.$accent-light);                
+                margin-left: 60px;
+            }
+        }
+
+        .hide-btn {
+            display: initial;
+        }
+    }
+}
